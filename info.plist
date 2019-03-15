@@ -19,6 +19,32 @@
 				<false/>
 			</dict>
 		</array>
+		<key>BA2EBD77-09E9-40ED-95CB-C516BB3FD1E7</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>F274CD19-0050-470E-8974-6E404455885E</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>F274CD19-0050-470E-8974-6E404455885E</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>91271B1E-81B0-4250-B21C-43C1A91BAA4D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>F32B16BE-138F-4523-960F-775878AA1D76</key>
 		<array>
 			<dict>
@@ -153,6 +179,71 @@
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string></string>
+				<key>title</key>
+				<string>Github repos have been reloaded</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>91271B1E-81B0-4250-B21C-43C1A91BAA4D</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>github-refresh</string>
+				<key>subtext</key>
+				<string>Reload Github repos</string>
+				<key>text</key>
+				<string>github-refresh</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>BA2EBD77-09E9-40ED-95CB-C516BB3FD1E7</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>python github.py --refresh</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>F274CD19-0050-470E-8974-6E404455885E</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
@@ -171,6 +262,27 @@
 			<integer>430</integer>
 			<key>ypos</key>
 			<integer>250</integer>
+		</dict>
+		<key>91271B1E-81B0-4250-B21C-43C1A91BAA4D</key>
+		<dict>
+			<key>xpos</key>
+			<integer>620</integer>
+			<key>ypos</key>
+			<integer>380</integer>
+		</dict>
+		<key>BA2EBD77-09E9-40ED-95CB-C516BB3FD1E7</key>
+		<dict>
+			<key>xpos</key>
+			<integer>250</integer>
+			<key>ypos</key>
+			<integer>380</integer>
+		</dict>
+		<key>F274CD19-0050-470E-8974-6E404455885E</key>
+		<dict>
+			<key>xpos</key>
+			<integer>430</integer>
+			<key>ypos</key>
+			<integer>380</integer>
 		</dict>
 		<key>F32B16BE-138F-4523-960F-775878AA1D76</key>
 		<dict>

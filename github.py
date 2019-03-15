@@ -59,6 +59,11 @@ def main(wf):
         return
 
     token = get_token(wf)
+
+    if args and args[0] == '--refresh':
+        wf.clear_data(lambda f: 'repos' in f)
+        get_repos(wf, token)
+        return
     
     repos = get_repos(wf, token)
     if args:
