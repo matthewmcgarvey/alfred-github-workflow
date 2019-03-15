@@ -6,6 +6,19 @@
 	<string>com.matthewmcg.github</string>
 	<key>connections</key>
 	<dict>
+		<key>1B7CFF5A-4173-435F-ABDC-AE3FD5F6A3E8</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>8C8BEA22-0621-4F0E-98D5-A7B1E1E3FEE3</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>F32B16BE-138F-4523-960F-775878AA1D76</key>
 		<array>
 			<dict>
@@ -33,27 +46,8 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>browser</key>
-				<string></string>
-				<key>spaces</key>
-				<string></string>
-				<key>url</key>
-				<string>{query}</string>
-				<key>utf8</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
-			<key>uid</key>
-			<string>F7E06437-96E8-4AE7-82A4-237FD0B7403F</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>alfredfiltersresults</key>
-				<true/>
+				<false/>
 				<key>alfredfiltersresultsmatchmode</key>
 				<integer>0</integer>
 				<key>argumenttrimmode</key>
@@ -75,9 +69,9 @@
 				<key>runningsubtext</key>
 				<string>Unfortunately this is a slow operation so be patient...</string>
 				<key>script</key>
-				<string>python github.py</string>
+				<string>python github.py {query}</string>
 				<key>scriptargtype</key>
-				<integer>1</integer>
+				<integer>0</integer>
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
@@ -96,11 +90,88 @@
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>{query}</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>F7E06437-96E8-4AE7-82A4-237FD0B7403F</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>github-auth</string>
+				<key>subtext</key>
+				<string>api token</string>
+				<key>text</key>
+				<string>github-auth {TOKEN}</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>1B7CFF5A-4173-435F-ABDC-AE3FD5F6A3E8</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>python github.py --auth {query}</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>8C8BEA22-0621-4F0E-98D5-A7B1E1E3FEE3</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
 	<key>uidata</key>
 	<dict>
+		<key>1B7CFF5A-4173-435F-ABDC-AE3FD5F6A3E8</key>
+		<dict>
+			<key>xpos</key>
+			<integer>250</integer>
+			<key>ypos</key>
+			<integer>250</integer>
+		</dict>
+		<key>8C8BEA22-0621-4F0E-98D5-A7B1E1E3FEE3</key>
+		<dict>
+			<key>xpos</key>
+			<integer>430</integer>
+			<key>ypos</key>
+			<integer>250</integer>
+		</dict>
 		<key>F32B16BE-138F-4523-960F-775878AA1D76</key>
 		<dict>
 			<key>xpos</key>
