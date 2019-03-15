@@ -41,14 +41,19 @@ def get_all(token):
         next_url = get_next(r)
     return repos
 
-def get_repos(wf, token):
-    repos = wf.stored_data('repos')
-    if repos:
-        return repos
+def get_cached_repos(wf):
+    return wf.stored_data('repos')
+
+def load_repos(wf, token):
     repos = get_all(token)
     wf.store_data('repos', repos)
     return repos
-    
+
+def get_repos(wf, token):
+    repos = get_cached_repos(wf)
+    if repos:
+        return repos
+    return load_repos(wf, token)
 
 def main(wf):
     args = wf.args
@@ -62,7 +67,7 @@ def main(wf):
 
     if args and args[0] == '--refresh':
         wf.clear_data(lambda f: 'repos' in f)
-        get_repos(wf, token)
+        load_repos(wf, token)
         return
     
     repos = get_repos(wf, token)
