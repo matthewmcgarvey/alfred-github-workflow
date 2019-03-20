@@ -11,7 +11,6 @@ def get_token(wf):
     if token is None:
         wf.add_item(
             'You must provide a token before using this workflow',
-            subtitle='Enter github-auth {TOKEN}',
             icon=ICON_ERROR,
             valid=False
         )

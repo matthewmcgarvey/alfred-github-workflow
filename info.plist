@@ -96,7 +96,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>github</string>
+				<string>gh</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -106,7 +106,7 @@
 				<key>queuemode</key>
 				<integer>1</integer>
 				<key>runningsubtext</key>
-				<string>Unfortunately this is a slow operation so be patient...</string>
+				<string>Github repos are being loaded...</string>
 				<key>script</key>
 				<string>python github.py {query}</string>
 				<key>scriptargtype</key>
@@ -114,9 +114,9 @@
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string></string>
+				<string>Fuzzily search repos</string>
 				<key>title</key>
-				<string>Check It Out</string>
+				<string>Search your Github repos...</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
@@ -154,11 +154,11 @@
 				<key>argumenttype</key>
 				<integer>0</integer>
 				<key>keyword</key>
-				<string>github-auth</string>
+				<string>gh-auth</string>
 				<key>subtext</key>
 				<string>api token</string>
 				<key>text</key>
-				<string>github-auth {TOKEN}</string>
+				<string>gh-auth {TOKEN}</string>
 				<key>withspace</key>
 				<true/>
 			</dict>
@@ -240,11 +240,11 @@
 				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>keyword</key>
-				<string>github-refresh</string>
+				<string>gh-refresh</string>
 				<key>subtext</key>
 				<string>Reload Github repos</string>
 				<key>text</key>
-				<string>github-refresh</string>
+				<string>gh-refresh</string>
 				<key>withspace</key>
 				<false/>
 			</dict>
