@@ -25,16 +25,14 @@ def request(token, url='https://api.github.com/user/repos'):
 
 def get_next(r):
     link = r.headers.get('link')
-    if not link:
-        return None
     searched = re.search('<([^>]+)>;\s*rel="next"', link)
     if not searched:
         return None
     return searched.group(1)
         
 
-def get_all(token, url='https://api.github.com/user/repos'):
-    r = request(token, url)
+def get_all(token):
+    r = request(token)
     repos = r.json()
     next_url = get_next(r)
     while next_url:
@@ -57,31 +55,11 @@ def get_repos(wf, token):
         return repos
     return load_repos(wf, token)
 
-def org_repos(org, token):
-    try:
-        return get_all(token, 'https://api.github.com/orgs/%s/repos' % org)
-    except:
-        return None
-
-def user_repos(user, token):
-    try:
-        return get_all(token, 'https://api.github.com/users/%s/repos' % user)
-    except:
-        return None
-
-def include(name, wf, token, stored_repos):
-    repos = user_repos(name, token)
-    if repos is None:
-        repos = org_repos(name, token)
-    if repos is None:
-        return;
-    wf.store_data('repos', stored_repos + repos)
-
 def main(wf):
     args = wf.args
     if args and args[0] == '--auth':
-        # TODO provide helper to take them to documentation to get
-        # an api token configured correctly
+        # TODO provide helper to take them to documentation to get api token
+        # configured correctly
         wf.store_data('token', args[1])
         return
 
@@ -93,15 +71,8 @@ def main(wf):
         return
     
     repos = get_repos(wf, token)
-
-    if args and args[0] == '--include':
-        query = args[1]
-        if query.endswith('/'):
-            include(query, wf, token, repos)
-
     if args:
-        query = args[0]
-        repos = wf.filter(query, repos, key=lambda repo: repo['full_name'])
+        repos = wf.filter(args[0], repos, key=lambda repo: repo['full_name'])
 
     for repo in repos:
         url = repo['html_url']
