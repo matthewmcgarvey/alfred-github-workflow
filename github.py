@@ -80,6 +80,7 @@ def main(wf):
         # TODO provide helper to take them to documentation to get api token
         # configured correctly
         wf.store_data('token', args[1])
+        load_repos(wf, token)
         return
 
     token = get_token(wf)
