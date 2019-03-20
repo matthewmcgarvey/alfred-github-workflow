@@ -19,6 +19,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>8C8BEA22-0621-4F0E-98D5-A7B1E1E3FEE3</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>377E60B7-C3CC-47D4-AEEB-D3ABE94C151A</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>BA2EBD77-09E9-40ED-95CB-C516BB3FD1E7</key>
 		<array>
 			<dict>
@@ -159,6 +172,27 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string></string>
+				<key>title</key>
+				<string>Token saved and repos loaded!</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>377E60B7-C3CC-47D4-AEEB-D3ABE94C151A</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
@@ -253,6 +287,13 @@
 		<dict>
 			<key>xpos</key>
 			<integer>250</integer>
+			<key>ypos</key>
+			<integer>250</integer>
+		</dict>
+		<key>377E60B7-C3CC-47D4-AEEB-D3ABE94C151A</key>
+		<dict>
+			<key>xpos</key>
+			<integer>620</integer>
 			<key>ypos</key>
 			<integer>250</integer>
 		</dict>
