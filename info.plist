@@ -6,11 +6,34 @@
 	<string>com.matthewmcg.github</string>
 	<key>connections</key>
 	<dict>
-		<key>1B7CFF5A-4173-435F-ABDC-AE3FD5F6A3E8</key>
+		<key>14CD89E9-013C-4392-8D0B-0B104A5A94C8</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
 				<string>8C8BEA22-0621-4F0E-98D5-A7B1E1E3FEE3</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>1B7CFF5A-4173-435F-ABDC-AE3FD5F6A3E8</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>F894EC2A-4B4D-4ECC-8247-76552B227F31</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>14CD89E9-013C-4392-8D0B-0B104A5A94C8</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -71,6 +94,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>F894EC2A-4B4D-4ECC-8247-76552B227F31</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>7CA9C3D8-E9AA-4703-870A-D2BCCE5AC5A0</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 	</dict>
 	<key>createdby</key>
 	<string>Matthew McGarvey</string>
@@ -114,9 +150,9 @@
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>Fuzzily search repos</string>
-				<key>title</key>
 				<string>Search your Github repos...</string>
+				<key>title</key>
+				<string>gh</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
@@ -151,12 +187,31 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>https://github.com/matthewmcgarvey/alfred-github-workflow#setup</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>7CA9C3D8-E9AA-4703-870A-D2BCCE5AC5A0</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>argumenttype</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>keyword</key>
 				<string>gh-auth</string>
 				<key>subtext</key>
-				<string>api token</string>
+				<string>Leave blank and press enter to be taken to documentation</string>
 				<key>text</key>
 				<string>gh-auth {TOKEN}</string>
 				<key>withspace</key>
@@ -172,21 +227,19 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>removeextension</key>
-				<false/>
-				<key>text</key>
+				<key>inputstring</key>
+				<string>{query}</string>
+				<key>matchcasesensitive</key>
+				<true/>
+				<key>matchmode</key>
+				<integer>0</integer>
+				<key>matchstring</key>
 				<string></string>
-				<key>title</key>
-				<string>Token saved and repos loaded!</string>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
+			<string>alfred.workflow.utility.filter</string>
 			<key>uid</key>
-			<string>377E60B7-C3CC-47D4-AEEB-D3ABE94C151A</string>
+			<string>F894EC2A-4B4D-4ECC-8247-76552B227F31</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -225,12 +278,31 @@
 				<key>text</key>
 				<string></string>
 				<key>title</key>
-				<string>Github repos have been reloaded</string>
+				<string>Token saved and repos loaded!</string>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
-			<string>91271B1E-81B0-4250-B21C-43C1A91BAA4D</string>
+			<string>377E60B7-C3CC-47D4-AEEB-D3ABE94C151A</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>inputstring</key>
+				<string>{query}</string>
+				<key>matchcasesensitive</key>
+				<true/>
+				<key>matchmode</key>
+				<integer>1</integer>
+				<key>matchstring</key>
+				<string></string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.filter</string>
+			<key>uid</key>
+			<string>14CD89E9-013C-4392-8D0B-0B104A5A94C8</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -242,7 +314,7 @@
 				<key>keyword</key>
 				<string>gh-refresh</string>
 				<key>subtext</key>
-				<string>Reload Github repos</string>
+				<string>Reloads Github repos</string>
 				<key>text</key>
 				<string>gh-refresh</string>
 				<key>withspace</key>
@@ -278,31 +350,66 @@
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string></string>
+				<key>title</key>
+				<string>Github repos have been reloaded</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>91271B1E-81B0-4250-B21C-43C1A91BAA4D</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
 	<key>uidata</key>
 	<dict>
+		<key>14CD89E9-013C-4392-8D0B-0B104A5A94C8</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<integer>270</integer>
+		</dict>
 		<key>1B7CFF5A-4173-435F-ABDC-AE3FD5F6A3E8</key>
 		<dict>
 			<key>xpos</key>
-			<integer>250</integer>
+			<integer>40</integer>
 			<key>ypos</key>
-			<integer>250</integer>
+			<integer>160</integer>
 		</dict>
 		<key>377E60B7-C3CC-47D4-AEEB-D3ABE94C151A</key>
 		<dict>
 			<key>xpos</key>
-			<integer>620</integer>
+			<integer>610</integer>
 			<key>ypos</key>
-			<integer>250</integer>
+			<integer>260</integer>
+		</dict>
+		<key>7CA9C3D8-E9AA-4703-870A-D2BCCE5AC5A0</key>
+		<dict>
+			<key>xpos</key>
+			<integer>570</integer>
+			<key>ypos</key>
+			<integer>140</integer>
 		</dict>
 		<key>8C8BEA22-0621-4F0E-98D5-A7B1E1E3FEE3</key>
 		<dict>
 			<key>xpos</key>
-			<integer>430</integer>
+			<integer>420</integer>
 			<key>ypos</key>
-			<integer>250</integer>
+			<integer>240</integer>
 		</dict>
 		<key>91271B1E-81B0-4250-B21C-43C1A91BAA4D</key>
 		<dict>
@@ -328,16 +435,23 @@
 		<key>F32B16BE-138F-4523-960F-775878AA1D76</key>
 		<dict>
 			<key>xpos</key>
-			<integer>250</integer>
+			<integer>240</integer>
 			<key>ypos</key>
-			<integer>130</integer>
+			<integer>30</integer>
 		</dict>
 		<key>F7E06437-96E8-4AE7-82A4-237FD0B7403F</key>
 		<dict>
 			<key>xpos</key>
-			<integer>430</integer>
+			<integer>420</integer>
 			<key>ypos</key>
-			<integer>130</integer>
+			<integer>30</integer>
+		</dict>
+		<key>F894EC2A-4B4D-4ECC-8247-76552B227F31</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<integer>170</integer>
 		</dict>
 	</dict>
 	<key>webaddress</key>
