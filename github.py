@@ -45,12 +45,15 @@ def get_all_urls(r):
 
 
 def get_all(token):
+    from concurrent.futures import ThreadPoolExecutor, as_completed
     r = request(token)
     repos = r.json()
     urls = get_all_urls(r)
-    for url in urls:
-        r = request(token, url)
-        repos = repos + r.json()
+    pool = ThreadPoolExecutor(20)
+    futures = [pool.submit(request,token,url) for url in urls]
+    results = [r.result() for r in as_completed(futures)]
+    for result in results:
+        repos += result.json()
     return repos
 
 
