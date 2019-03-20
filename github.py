@@ -5,6 +5,7 @@ from workflow import Workflow3, ICON_WEB, web, ICON_ERROR
 
 log = None
 
+
 def get_token(wf):
     token = wf.stored_data('token')
     if token is None:
@@ -18,10 +19,12 @@ def get_token(wf):
         sys.exit(1)
     return token
 
+
 def request(token, url='https://api.github.com/user/repos'):
     r = web.get(url, headers={'Authorization': 'token %s' % token})
     r.raise_for_status()
     return r
+
 
 def get_next(r):
     link = r.headers.get('link')
@@ -29,7 +32,7 @@ def get_next(r):
     if not searched:
         return None
     return searched.group(1)
-        
+
 
 def get_all(token):
     r = request(token)
@@ -41,19 +44,23 @@ def get_all(token):
         next_url = get_next(r)
     return repos
 
+
 def get_cached_repos(wf):
     return wf.stored_data('repos')
+
 
 def load_repos(wf, token):
     repos = get_all(token)
     wf.store_data('repos', repos)
     return repos
 
+
 def get_repos(wf, token):
     repos = get_cached_repos(wf)
     if repos:
         return repos
     return load_repos(wf, token)
+
 
 def main(wf):
     args = wf.args
@@ -66,10 +73,9 @@ def main(wf):
     token = get_token(wf)
 
     if args and args[0] == '--refresh':
-        wf.clear_data(lambda f: 'repos' in f)
         load_repos(wf, token)
         return
-    
+
     repos = get_repos(wf, token)
     if args:
         repos = wf.filter(args[0], repos, key=lambda repo: repo['full_name'])
@@ -84,7 +90,7 @@ def main(wf):
             valid=True
         )
     wf.send_feedback()
-    
+
 
 if __name__ == u"__main__":
     wf = Workflow3(libraries=['./lib'])
