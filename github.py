@@ -93,6 +93,11 @@ def main(wf):
     if args:
         repos = wf.filter(args[0], repos, key=lambda repo: repo['full_name'])
 
+    if not repos:
+        wf.warn_empty('No repos found. Refresh repos or try a different query.')
+        wf.send_feedback()
+        return
+
     for repo in repos:
         url = repo['html_url']
         wf.add_item(
