@@ -26,22 +26,31 @@ def request(token, url='https://api.github.com/user/repos'):
     return r
 
 
-def get_next(r):
+def get_last(r):
     link = r.headers.get('link')
-    searched = re.search('<([^>]+)>;\s*rel="next"', link)
-    if not searched:
+    if not link:
         return None
-    return searched.group(1)
+    last_search = re.search('page=(\d+)>;\s*rel="last"', link)
+    if not last_search:
+        return None
+    return int(last_search.group(1))
+
+
+def get_all_urls(r):
+    last = get_last(r)
+    if not last:
+        return None
+    inclusive_last = last + 1
+    return ['https://api.github.com/user/repos?page=%d' % page for page in range(2, inclusive_last)]
 
 
 def get_all(token):
     r = request(token)
     repos = r.json()
-    next_url = get_next(r)
-    while next_url:
-        r = request(token, next_url)
+    urls = get_all_urls(r)
+    for url in urls:
+        r = request(token, url)
         repos = repos + r.json()
-        next_url = get_next(r)
     return repos
 
 
