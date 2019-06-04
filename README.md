@@ -10,7 +10,7 @@ Benefits of using this workflow:
 
 ## Installation
 
-Click on the [releas section](./releases) section and download the `Github.alfredworkflow` file.
+[Download the release](https://github.com/matthewmcgarvey/alfred-github-workflow/releases/latest/download/Github.alfredworkflow) section and download the `Github.alfredworkflow` file.
 Double-click the file and it will install the workflow.
 
 ## Setup
