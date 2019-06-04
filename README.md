@@ -8,6 +8,11 @@ Benefits of using this workflow:
 - The refresh action isn't triggered if you mistype a repo name and press enter
 - Repos are loaded asynchronously and much faster
 
+## Installation
+
+Click on the [releas section](./releases) section and download the `Github.alfredworkflow` file.
+Double-click the file and it will install the workflow.
+
 ## Setup
 
 To create the API token needed by this workflow:
