@@ -38,7 +38,7 @@ def get_last(r):
 def get_all_urls(r):
     last = get_last(r)
     if not last:
-        return None
+        return []
     inclusive_last = last + 1
     return ['https://api.github.com/user/repos?page=%d' % page for page in range(2, inclusive_last)]
 
@@ -78,7 +78,8 @@ def main(wf):
     if args and args[0] == '--auth':
         # TODO provide helper to take them to documentation to get api token
         # configured correctly
-        wf.store_data('token', args[1])
+        token = args[1]
+        wf.store_data('token', token)
         load_repos(wf, token)
         return
 
@@ -90,7 +91,7 @@ def main(wf):
 
     repos = get_repos(wf, token)
     if args:
-        repos = wf.filter(args[0], repos, key=lambda repo: repo['full_name'])
+        repos = wf.filter(args[0], repos, lambda repo: repo['full_name'])
 
     if not repos:
         wf.warn_empty('No repos found. Refresh repos or try a different query.')

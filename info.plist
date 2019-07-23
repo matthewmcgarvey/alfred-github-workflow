@@ -6,6 +6,19 @@
 	<string>com.matthewmcg.github</string>
 	<key>connections</key>
 	<dict>
+		<key>089FEA1F-952B-4635-91C6-24861402B336</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>91271B1E-81B0-4250-B21C-43C1A91BAA4D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>14CD89E9-013C-4392-8D0B-0B104A5A94C8</key>
 		<array>
 			<dict>
@@ -72,7 +85,17 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>91271B1E-81B0-4250-B21C-43C1A91BAA4D</string>
+				<string>089FEA1F-952B-4635-91C6-24861402B336</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>FC66336B-014C-4578-BD4D-CD40A8A021F7</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -309,6 +332,27 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string></string>
+				<key>title</key>
+				<string>Github repos have been refreshed</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>91271B1E-81B0-4250-B21C-43C1A91BAA4D</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>keyword</key>
@@ -353,21 +397,40 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>inputstring</key>
+				<string>{query}</string>
+				<key>matchcasesensitive</key>
+				<true/>
+				<key>matchmode</key>
+				<integer>0</integer>
+				<key>matchstring</key>
+				<string></string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.filter</string>
+			<key>uid</key>
+			<string>089FEA1F-952B-4635-91C6-24861402B336</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>lastpathcomponent</key>
 				<false/>
 				<key>onlyshowifquerypopulated</key>
-				<false/>
+				<true/>
 				<key>removeextension</key>
 				<false/>
 				<key>text</key>
-				<string></string>
+				<string>Debug the workflow to see the error</string>
 				<key>title</key>
-				<string>Github repos have been reloaded</string>
+				<string>An error happened while refreshing</string>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
-			<string>91271B1E-81B0-4250-B21C-43C1A91BAA4D</string>
+			<string>FC66336B-014C-4578-BD4D-CD40A8A021F7</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -376,6 +439,13 @@
 	<string></string>
 	<key>uidata</key>
 	<dict>
+		<key>089FEA1F-952B-4635-91C6-24861402B336</key>
+		<dict>
+			<key>xpos</key>
+			<integer>670</integer>
+			<key>ypos</key>
+			<integer>390</integer>
+		</dict>
 		<key>14CD89E9-013C-4392-8D0B-0B104A5A94C8</key>
 		<dict>
 			<key>xpos</key>
@@ -414,9 +484,9 @@
 		<key>91271B1E-81B0-4250-B21C-43C1A91BAA4D</key>
 		<dict>
 			<key>xpos</key>
-			<integer>620</integer>
+			<integer>810</integer>
 			<key>ypos</key>
-			<integer>380</integer>
+			<integer>330</integer>
 		</dict>
 		<key>BA2EBD77-09E9-40ED-95CB-C516BB3FD1E7</key>
 		<dict>
@@ -453,8 +523,15 @@
 			<key>ypos</key>
 			<integer>170</integer>
 		</dict>
+		<key>FC66336B-014C-4578-BD4D-CD40A8A021F7</key>
+		<dict>
+			<key>xpos</key>
+			<integer>770</integer>
+			<key>ypos</key>
+			<integer>450</integer>
+		</dict>
 	</dict>
 	<key>webaddress</key>
-	<string></string>
+	<string>https://github.com/matthewmcgarvey/alfred-github-workflow</string>
 </dict>
 </plist>
