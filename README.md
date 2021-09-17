@@ -9,6 +9,7 @@ Benefits of using this workflow:
 - Repos are loaded asynchronously and much faster
 
 ## Installation
+#### Install workflow into Alfred
 
 Find the latest workflow file over in the releases tab or [click here to download it directly](https://github.com/lampo/alfred-github-workflow/releases/latest/download/Github.alfredworkflow).
 Double-click the file and it will install the workflow.
@@ -27,7 +28,7 @@ To create the API token needed by this workflow:
 8. In Alfred enter `gh-auth` with a space and paste the token.  Should look like: `gh-auth ACCESS_TOKEN_HERE`
 
 
-![picture of priveleges for the access token](.docs/token_privs.png "Access Token Priveleges")
+![picture of priveleges for the access token](.docs/token_privs.png "Access Token Privileges")
 
 Your repos should be loaded automatically.  If you ever want to refresh the list of available repos, you can enter `gh-refresh` and it will update the repo list in the background and notify when it is done.
 
@@ -42,10 +43,15 @@ Listed in order of what I want
 - see your own notifications, pull requests, issues?
 - maybe some other actions to get pull requests, issues, etc?
 
-## Development
-
+## Development, Testing, and Contributing
+#### Contributing
+When adding a new tag/release, you will need to run the install-libraries script to install dependencies into the `lib` directory.
+Package new release with the files produced in the `lib` directory.
 Install libraries with:
 
 ```bash
 ./install-libraries.sh
 ```
+#### Development and Testing
+When adding new dependencies, list them in the `requirements.txt`. To ensure correct install, clear out your local `lib`
+directory and run install-libraries.sh again, then add workflow to alfred and test functionality.
