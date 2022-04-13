@@ -2,3 +2,6 @@
 .vscode/
 lib/*
 !lib/.gitkeep
+
+.config
+.irb_history
