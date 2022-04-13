@@ -1,7 +1,10 @@
 # encoding: utf-8
 import sys
 import re
-from workflow import Workflow3, ICON_WEB, web, ICON_ERROR
+from workflow import Workflow3, ICON_ERROR
+from urllib.request import Request
+from urllib import request
+from json.decoder import JSONDecoder
 
 log = None
 
@@ -16,14 +19,20 @@ def get_token(wf):
         )
         wf.send_feedback()
         sys.exit(1)
-    return token
+    return token.decode('utf-8')
 
 
-def request(token, url='https://api.github.com/user/repos'):
-    r = web.get(url, headers={'Authorization': 'token %s' % token})
-    r.raise_for_status()
-    return r
+def repos_request(token, url='https://api.github.com/user/repos'):
+    request_with_header = Request(url, headers={'Authorization': 'token %s' % token})
+    f = request.urlopen(request_with_header)
 
+    return f
+
+def decoded_repos_request(token, url='https://api.github.com/user/repos'):
+    request_with_header = Request(url, headers={'Authorization': 'token %s' % token})
+    f = request.urlopen(request_with_header)
+
+    return f.read().decode('utf-8')
 
 def get_last(r):
     link = r.headers.get('link')
@@ -45,19 +54,20 @@ def get_all_urls(r):
 
 def get_all(token):
     from concurrent.futures import ThreadPoolExecutor, as_completed
-    r = request(token)
-    repos = r.json()
+    r = repos_request(token)
+    repos = JSONDecoder().decode(r.read().decode('utf-8'))
     urls = get_all_urls(r)
     pool = ThreadPoolExecutor(20)
-    futures = [pool.submit(request,token,url) for url in urls]
+    futures = [pool.submit(decoded_repos_request,token,url) for url in urls]
     results = [r.result() for r in as_completed(futures)]
     for result in results:
-        repos += result.json()
+        repos += JSONDecoder().decode(result)
     return repos
 
 
 def get_cached_repos(wf):
-    return wf.stored_data('repos')
+    repos = wf.stored_data('repos')
+    return repos
 
 
 def load_repos(wf, token):
@@ -79,7 +89,7 @@ def main(wf):
         # TODO provide helper to take them to documentation to get api token
         # configured correctly
         token = args[1]
-        wf.store_data('token', token)
+        wf.store_data('token', token.encode())
         load_repos(wf, token)
         return
 
@@ -91,7 +101,7 @@ def main(wf):
 
     repos = get_repos(wf, token)
     if args:
-        repos = wf.filter(args[0], repos, lambda repo: repo['full_name'])
+        repos = wf.filter(args[0], repos, lambda repo: repo.get('full_name'))
 
     if not repos:
         wf.warn_empty('No repos found. Refresh repos or try a different query.')

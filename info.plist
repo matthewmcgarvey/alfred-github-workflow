@@ -167,7 +167,7 @@
 				<key>runningsubtext</key>
 				<string>Github repos are being loaded...</string>
 				<key>script</key>
-				<string>python github.py {query}</string>
+				<string>/usr/bin/python3 github.py {query}</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -274,7 +274,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>python github.py --auth {query}</string>
+				<string>/usr/bin/python3 github.py --auth {query}</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -379,7 +379,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>python github.py --refresh</string>
+				<string>/usr/bin/python3 github.py --refresh</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
