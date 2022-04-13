@@ -24,9 +24,7 @@ def get_token(wf):
 
 def repos_request(token, url='https://api.github.com/user/repos'):
     request_with_header = Request(url, headers={'Authorization': 'token %s' % token})
-    f = request.urlopen(request_with_header)
-
-    return f
+    return request.urlopen(request_with_header)
 
 def decoded_repos_request(token, url='https://api.github.com/user/repos'):
     request_with_header = Request(url, headers={'Authorization': 'token %s' % token})
@@ -50,7 +48,6 @@ def get_all_urls(r):
         return []
     inclusive_last = last + 1
     return ['https://api.github.com/user/repos?page=%d' % page for page in range(2, inclusive_last)]
-
 
 def get_all(token):
     from concurrent.futures import ThreadPoolExecutor, as_completed
