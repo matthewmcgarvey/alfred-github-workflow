@@ -11,7 +11,7 @@ Benefits of using this workflow:
 ## Installation
 #### Install workflow into Alfred
 
-Find the latest workflow file over in the releases tab or [click here to download it directly](https://github.com/lampo/alfred-github-workflow/releases/latest/download/Github.alfredworkflow).
+Find the latest workflow file over in the releases tab or [click here to download it directly](https://github.com/lampo/alfred-github-workflow/releases/tag/v2.0.0).
 Double-click the file and it will install the workflow.
 
 ## Setup
